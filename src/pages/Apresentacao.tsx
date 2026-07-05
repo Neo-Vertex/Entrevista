@@ -277,25 +277,13 @@ export default function Apresentacao() {
                 </div>
                 <h2>Obrigado por me ouvir até aqui</h2>
                 <p>
-                  Quer rever algum passo? É só clicar nele aí embaixo. E se quiser falar com o Nelson em pessoa,
-                  volta lá no WhatsApp e diz "falar com Nelson" — eu chamo ele na hora.
+                  Quer rever tudo desde o começo? É só clicar em "recomeçar". E se quiser falar com o Nelson em
+                  pessoa, volta lá no WhatsApp e diz "falar com Nelson" — eu chamo ele na hora.
                 </p>
                 <ReplyBox />
               </div>
             )}
 
-            <div className="step-chips">
-              {PASSOS.map((p, i) => (
-                <button
-                  key={p.id}
-                  type="button"
-                  className={`step-chip ${i < idx || done ? 'done' : ''} ${i === idx && !done ? 'current' : ''}`}
-                  onClick={() => tocar(i)}
-                >
-                  {p.chipCurto}
-                </button>
-              ))}
-            </div>
           </div>
         </div>
       )}
