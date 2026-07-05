@@ -194,6 +194,69 @@
 .step-chip.done { background: var(--chip-bg); color: var(--accent); border-color: transparent; }
 .step-chip.current { background: var(--accent); color: var(--surface-2); border-color: var(--accent); }
 
+/* ---------- botão de chamar o Nelson ---------- */
+.call-block {
+  margin-top: 1.7rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed var(--line);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.7rem;
+}
+.call-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65em;
+  font-family: ui-monospace, "SF Mono", Consolas, monospace;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  background: #c6392c;
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.95em 2em;
+  cursor: pointer;
+  animation: call-pulse 1.7s ease-out infinite;
+  transition: transform 0.15s ease, background 0.2s ease;
+}
+.call-button:hover:not(:disabled) { transform: translateY(-1px); background: #d24334; }
+.call-button:disabled { cursor: default; }
+@keyframes call-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(198, 57, 44, 0.45); }
+  70% { box-shadow: 0 0 0 14px rgba(198, 57, 44, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(198, 57, 44, 0); }
+}
+.call-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #ffd9d4;
+  animation: call-blink 1.1s ease-in-out infinite;
+  flex: 0 0 auto;
+}
+@keyframes call-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+.call-button.called {
+  background: var(--chip-bg);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  animation: none;
+}
+.call-note {
+  font-family: ui-monospace, "SF Mono", Consolas, monospace;
+  font-size: 0.74rem;
+  color: var(--muted);
+  margin: 0;
+  max-width: 46ch;
+}
+.call-erro { font-size: 0.85rem; color: var(--accent-warm); margin: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .call-button, .call-dot { animation: none !important; }
+}
+
 /* ---------- mobile ---------- */
 @media (max-width: 700px) {
   .stage { grid-template-columns: 1fr; gap: 1.3rem; }

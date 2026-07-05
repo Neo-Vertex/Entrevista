@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
 import { NewMascot } from '../components/NewMascot'
-import { ReplyBox } from '../components/ReplyBox'
 import bio from '../data/apresentacao-bio.json'
 import extras from '../data/apresentacao-extras.json'
 import requisitos from '../data/apresentacao-requisitos.json'
@@ -26,6 +25,9 @@ const SKILLS_STACKS: Stack[] = [
   { grupo: 'Infra', itens: ['Docker', 'Coolify CI/CD', 'Prometheus', 'Umami'] },
   { grupo: 'RPA', itens: ['Macro Expert', 'Python (scripts)'] },
 ]
+
+const WEBHOOK_CHAMAR_NELSON = 'https://n8n.neovertexia.com/webhook/chamar-nelson'
+const CHAVE_CHAMADO = 'nv-chamar-nelson-v1'
 
 const PASSOS: Passo[] = [
   {
@@ -92,6 +94,9 @@ export default function Apresentacao() {
   const [done, setDone] = useState(false)
   const [audioFalhou, setAudioFalhou] = useState(false)
   const [frac, setFrac] = useState(0)
+  const [chamado, setChamado] = useState(() => localStorage.getItem(CHAVE_CHAMADO) === '1')
+  const [chamando, setChamando] = useState(false)
+  const [erroChamar, setErroChamar] = useState(false)
 
   const audioRef = useRef<HTMLAudioElement>(null)
   const cardRef = useRef<HTMLDivElement>(null)
@@ -142,6 +147,26 @@ export default function Apresentacao() {
           setAudioFalhou(true)
           setFrac(1)
         })
+    }
+  }
+
+  async function chamarNelson() {
+    if (chamado || chamando) return
+    setChamando(true)
+    setErroChamar(false)
+    try {
+      const res = await fetch(WEBHOOK_CHAMAR_NELSON, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ origem: 'apresentacao', quando: new Date().toISOString() }),
+      })
+      if (!res.ok) throw new Error('webhook falhou')
+      localStorage.setItem(CHAVE_CHAMADO, '1')
+      setChamado(true)
+    } catch {
+      setErroChamar(true)
+    } finally {
+      setChamando(false)
     }
   }
 
@@ -277,10 +302,40 @@ export default function Apresentacao() {
                 </div>
                 <h2>Obrigado por me ouvir até aqui</h2>
                 <p>
-                  Quer rever tudo desde o começo? É só clicar em "recomeçar". E se quiser falar com o Nelson em
-                  pessoa, volta lá no WhatsApp e diz "falar com Nelson" — eu chamo ele na hora.
+                  Quer rever tudo desde o começo? É só clicar em "recomeçar".
                 </p>
-                <ReplyBox />
+                <p>
+                  Ah, e aquele RPA clássico de mouse e teclado, estilo Macro Expert? O Nelson constrói esse tipo de
+                  automação em Python orientado por Claude Code: descreve o fluxo, revisa o código e coloca pra
+                  rodar em minutos — foi assim que ele montou uma dessas durante este próprio processo.
+                </p>
+                <div className="call-block">
+                  <button
+                    className={`call-button ${chamado ? 'called' : ''}`}
+                    type="button"
+                    onClick={chamarNelson}
+                    disabled={chamado || chamando}
+                  >
+                    {chamado ? (
+                      <>✓&nbsp;&nbsp;Nelson foi avisado</>
+                    ) : chamando ? (
+                      <>avisando…</>
+                    ) : (
+                      <>
+                        <span className="call-dot" aria-hidden="true" />
+                        Chamar Nelson agora
+                      </>
+                    )}
+                  </button>
+                  <p className="call-note">
+                    {chamado
+                      ? 'mensagem enviada pro WhatsApp dele — obrigado! 🙏'
+                      : 'isso manda "Apresentação terminada!" direto no WhatsApp dele — e só funciona uma vez'}
+                  </p>
+                  {erroChamar && (
+                    <p className="call-erro">não consegui avisar agora — tenta de novo em instantes 🙏</p>
+                  )}
+                </div>
               </div>
             )}
 
