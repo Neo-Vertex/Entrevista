@@ -131,3 +131,7 @@ footer.page-footer {
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
 }
+
+@media (max-width: 560px) {
+  .page { padding: 2.6rem 1.1rem 4rem; }
+}

@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
+import './PlayButton.css'
 
-export function PlayButton({ src, label }: { src: string; label: string }) {
+export function PlayButton({ src, label, onEnded }: { src: string; label: string; onEnded?: () => void }) {
   const audioRef = useRef<HTMLAudioElement>(null)
   const [state, setState] = useState<'idle' | 'playing' | 'missing'>('idle')
 
@@ -26,7 +27,10 @@ export function PlayButton({ src, label }: { src: string; label: string }) {
         ref={audioRef}
         src={src}
         preload="none"
-        onEnded={() => setState('idle')}
+        onEnded={() => {
+          setState('idle')
+          onEnded?.()
+        }}
         onError={() => setState('missing')}
       />
       {state === 'missing' && <span className="play-missing">áudio ainda não gerado</span>}

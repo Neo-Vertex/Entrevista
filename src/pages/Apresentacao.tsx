@@ -1,5 +1,7 @@
+import { useEffect, useRef, useState } from 'react'
 import { Nav } from '../components/Nav'
 import { PlayButton } from '../components/PlayButton'
+import { ReplyBox } from '../components/ReplyBox'
 import bio from '../data/apresentacao-bio.json'
 import requisitos from '../data/apresentacao-requisitos.json'
 import './Apresentacao.css'
@@ -8,6 +10,14 @@ const OBRIGATORIOS = requisitos.filter((r) => r.grupo === 'obrigatorio')
 const DIFERENCIAIS = requisitos.filter((r) => r.grupo === 'diferencial')
 
 export default function Apresentacao() {
+  const [bioEnded, setBioEnded] = useState(false)
+  const revealRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (!bioEnded) return
+    revealRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+  }, [bioEnded])
+
   return (
     <div className="page">
       <div className="eyebrow">Continuação da apresentação, enviada pelo New</div>
@@ -23,12 +33,18 @@ export default function Apresentacao() {
       <div className="bio-section">
         <div className="bio-head">
           <h2>{bio.titulo}</h2>
-          <PlayButton src="/audio/bio.mp3" label="ouvir o New apresentando o Nelson" />
+          <PlayButton src="/audio/bio.mp3" label="ouvir o New apresentando o Nelson" onEnded={() => setBioEnded(true)} />
         </div>
         {bio.paragrafos.map((p, i) => (
           <p key={i}>{p}</p>
         ))}
       </div>
+
+      {bioEnded && (
+        <div className="reveal-box" ref={revealRef}>
+          <ReplyBox />
+        </div>
+      )}
 
       <div className="qa-group-head">
         <span className="eyebrow">Requisitos obrigatórios</span>

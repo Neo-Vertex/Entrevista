@@ -112,4 +112,6 @@
 
 @media (max-width: 560px) {
   .case-head { gap: 0.5rem 0.7rem; }
+  .segment-bar { height: 20px; gap: 2px; }
+  .scorecard { padding: 1.2rem 1.1rem 1.1rem; }
 }

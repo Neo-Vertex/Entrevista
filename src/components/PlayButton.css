@@ -1,0 +1,22 @@
+.play-button-wrap { display: inline-flex; align-items: center; gap: 0.6rem; flex: 0 0 auto; }
+.play-button {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  background: var(--chip-bg);
+  color: var(--accent);
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+.play-button:hover { background: var(--accent); color: var(--surface-2); }
+.play-button.playing { background: var(--accent); color: var(--surface-2); }
+.play-missing { font-size: 0.76rem; color: var(--muted); font-style: italic; }
+
+@media (prefers-reduced-motion: reduce) {
+  .play-button { transition: none; }
+}
