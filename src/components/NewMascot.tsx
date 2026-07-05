@@ -1,8 +1,8 @@
 import './NewMascot.css'
 
-// O New em pessoa: um rapaz engravatado estilo mascote (na linha do Clippy).
-// Quando talking=true, a boca abre e fecha, o braço acena e as sobrancelhas
-// sobem — tudo via CSS, sem lib de animação.
+// O New em pessoa: um rapaz engravatado estilo mascote (na linha do Clippy),
+// com headset de assistente virtual. Quando talking=true, a boca abre e
+// fecha, o braço acena, as sobrancelhas sobem e a cabeça balança de leve.
 export function NewMascot({ talking }: { talking: boolean }) {
   return (
     <svg
@@ -11,32 +11,41 @@ export function NewMascot({ talking }: { talking: boolean }) {
       role="img"
       aria-label="New, o assistente virtual do Nelson"
     >
+      <defs>
+        <linearGradient id="suitGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#3a434e" />
+          <stop offset="1" stopColor="#262c34" />
+        </linearGradient>
+      </defs>
+
       <ellipse cx="110" cy="290" rx="52" ry="8" fill="rgba(0,0,0,0.14)" />
       <g className="m-float">
         {/* pernas e sapatos */}
         <rect x="88" y="246" width="15" height="30" rx="7" fill="#232830" />
         <rect x="117" y="246" width="15" height="30" rx="7" fill="#232830" />
-        <ellipse cx="93" cy="279" rx="15" ry="7" fill="#171b20" />
-        <ellipse cx="127" cy="279" rx="15" ry="7" fill="#171b20" />
+        <ellipse cx="92" cy="279" rx="16" ry="7" fill="#171b20" />
+        <ellipse cx="128" cy="279" rx="16" ry="7" fill="#171b20" />
 
         {/* braço esquerdo (parado) */}
-        <rect x="56" y="176" width="18" height="64" rx="9" fill="#2f3640" transform="rotate(9 65 180)" />
+        <rect x="56" y="176" width="18" height="64" rx="9" fill="url(#suitGrad)" transform="rotate(9 65 180)" />
         <circle cx="58" cy="243" r="9" fill="#f2c29b" />
 
         {/* corpo / paletó */}
-        <rect x="66" y="160" width="88" height="98" rx="28" fill="#2f3640" />
+        <rect x="66" y="160" width="88" height="98" rx="28" fill="url(#suitGrad)" />
         {/* camisa */}
         <path d="M110 162 L92 162 L110 210 L128 162 Z" fill="#f6f7f1" />
         {/* lapelas */}
-        <path d="M92 162 L110 186 L92 180 Z" fill="#262c34" />
-        <path d="M128 162 L110 186 L128 180 Z" fill="#262c34" />
+        <path d="M92 162 L110 186 L92 180 Z" fill="#20252c" />
+        <path d="M128 162 L110 186 L128 180 Z" fill="#20252c" />
+        {/* lenço no bolso */}
+        <path d="M79 190 l14 0 l-7 9 Z" fill="#f6f7f1" />
         {/* gravata */}
         <rect x="104.5" y="163" width="11" height="7" rx="2.5" fill="var(--accent, #2b6b57)" />
         <path d="M110 169 L103 178 L110 204 L117 178 Z" fill="var(--accent, #2b6b57)" />
 
         {/* braço direito (acena quando fala) */}
         <g className="m-arm-wave">
-          <rect x="141" y="152" width="18" height="58" rx="9" fill="#2f3640" transform="rotate(-38 150 207)" />
+          <rect x="141" y="152" width="18" height="58" rx="9" fill="url(#suitGrad)" transform="rotate(-38 150 207)" />
           <circle cx="177" cy="153" r="10" fill="#f2c29b" />
         </g>
 
@@ -49,6 +58,12 @@ export function NewMascot({ talking }: { talking: boolean }) {
           {/* cabelo */}
           <path d="M54 98 A56 56 0 0 1 166 98 L155 98 A45 45 0 0 0 65 98 Z" fill="#3a2f2a" />
           <path d="M65 98 A45 45 0 0 1 110 53 C 90 60 76 74 71 98 Z" fill="#3a2f2a" />
+          {/* headset: alça, fones e microfone */}
+          <path d="M50 86 A62 62 0 0 1 170 86" stroke="#20252c" strokeWidth="7" fill="none" strokeLinecap="round" />
+          <rect x="43" y="84" width="13" height="26" rx="6.5" fill="#20252c" />
+          <rect x="164" y="84" width="13" height="26" rx="6.5" fill="#20252c" />
+          <path d="M52 110 Q 62 136 92 137" stroke="#20252c" strokeWidth="4" fill="none" strokeLinecap="round" />
+          <circle cx="95" cy="137" r="4.5" fill="var(--accent, #2b6b57)" />
           {/* sobrancelhas */}
           <rect className="m-brow" x="76" y="79" width="22" height="6" rx="3" fill="#3a2f2a" />
           <rect className="m-brow" x="122" y="79" width="22" height="6" rx="3" fill="#3a2f2a" />
@@ -68,10 +83,10 @@ export function NewMascot({ talking }: { talking: boolean }) {
           <circle cx="72" cy="112" r="6.5" fill="rgba(224,122,95,0.25)" />
           <circle cx="148" cy="112" r="6.5" fill="rgba(224,122,95,0.25)" />
           {/* boca: sorriso parado + boca falante */}
-          <path className="m-smile" d="M96 122 Q110 134 124 122" stroke="#b96a4b" strokeWidth="4" fill="none" strokeLinecap="round" />
+          <path className="m-smile" d="M98 122 Q112 134 126 122" stroke="#b96a4b" strokeWidth="4" fill="none" strokeLinecap="round" />
           <g className="m-talk">
-            <ellipse cx="110" cy="126" rx="11" ry="9" fill="#7c3b32" />
-            <ellipse cx="110" cy="130" rx="6" ry="3.5" fill="#e07a5f" />
+            <ellipse cx="112" cy="126" rx="11" ry="9" fill="#7c3b32" />
+            <ellipse cx="112" cy="130" rx="6" ry="3.5" fill="#e07a5f" />
           </g>
         </g>
       </g>

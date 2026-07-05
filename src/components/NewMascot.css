@@ -39,6 +39,14 @@
   30% { transform: translateY(-3px); }
 }
 
+.m-head { transform-box: fill-box; transform-origin: center 90%; }
+.mascot.talking .m-head { animation: m-tilt 2.8s ease-in-out infinite; }
+@keyframes m-tilt {
+  0%, 100% { transform: rotate(0deg); }
+  30% { transform: rotate(-2deg); }
+  70% { transform: rotate(2deg); }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .m-float, .m-lid, .m-talk, .m-arm-wave, .m-brow { animation: none !important; }
+  .m-float, .m-lid, .m-talk, .m-arm-wave, .m-brow, .m-head { animation: none !important; }
 }

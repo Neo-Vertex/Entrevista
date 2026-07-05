@@ -3,126 +3,126 @@
     "id": "req-automacao",
     "grupo": "obrigatorio",
     "req": "Automação de processos",
-    "script": "Que bom que perguntou sobre automação de processos! É praticamente o que o Nelson faz em todo projeto que toca — e o exemplo mais fácil de apontar sou eu mesmo: fui construído do zero, durante esse processo seletivo, especificamente pra automatizar o primeiro contato com você. Se quiser um sistema mais robusto ainda, o Espaço Família automatiza agendamento, cobrança e notificação de status de uma clínica inteira.",
-    "projeto": "Espaço Família (e este próprio agente)"
+    "script": "É o padrão de trabalho dele: 9 projetos de automação rodando em produção — e eu mesmo fui construído durante este processo seletivo.",
+    "projeto": "9 projetos + este agente"
   },
   {
     "id": "req-api",
     "grupo": "obrigatorio",
     "req": "Integração via API",
-    "script": "Ótima pergunta sobre integração via API! O projeto que resolveria isso na hora é o Espaço Família: ele conversa com Chatwoot, WhatsApp, Google Calendar, OpenAI, ElevenLabs, Whisper, Twilio e Retell AI, tudo no mesmo sistema — cada API com autenticação e tratamento de erro próprios.",
+    "script": "Dezenas de APIs integradas: WhatsApp, Google, OpenAI, Twilio, pagamento e até impressora. Ler documentação nova é rotina, não obstáculo.",
     "projeto": "Espaço Família"
   },
   {
     "id": "req-python",
     "grupo": "obrigatorio",
     "req": "Python avançado",
-    "script": "Sobre Python, vou ser direto: não existe um projeto completo na linguagem no portfólio dele ainda. O que existe são scripts reais, como os que ele já escreveu pra rodar migration de banco de dados. Combinado com o quão rápido ele aprende cada stack nova, é a base honesta pra crescer em Python rápido, se for isso que o cargo pedir.",
-    "projeto": "scripts Python (migrations)"
+    "script": "Sendo direto: não há projeto completo em Python — há scripts reais, como os de migration de banco. Com o ritmo de aprendizado dele, esse gap fecha rápido.",
+    "projeto": "scripts Python"
   },
   {
     "id": "req-sql",
     "grupo": "obrigatorio",
     "req": "SQL",
-    "script": "Sobre SQL, o projeto que resolveria isso é o Espaço Família: cento e treze migrations em SQL puro, sem ORM, incluindo uma trava de concorrência pra impedir duplo agendamento no mesmo horário. Não é só SELECT com JOIN, é SQL resolvendo um problema real de concorrência.",
+    "script": "113 migrations em SQL puro, sem ORM, com trava de concorrência pra impedir agendamento duplo. SQL de produção, não de curso.",
     "projeto": "Espaço Família"
   },
   {
     "id": "req-e2e",
     "grupo": "obrigatorio",
     "req": "Solução ponta a ponta",
-    "script": "Pra ponta a ponta, qualquer um dos nove projetos serve de exemplo — mas cito o Espaço Família: banco modelado, backend com regra de negócio, frontend funcional, Docker e deploy contínuo, tudo sob a responsabilidade dele, sem time por trás.",
-    "projeto": "Espaço Família"
+    "script": "Todo projeto dele vai do banco de dados ao deploy monitorado — sozinho, sem time por trás.",
+    "projeto": "9 de 9 projetos"
   },
   {
     "id": "req-analise",
     "grupo": "obrigatorio",
     "req": "Habilidades analíticas",
-    "script": "Essa eu adoro contar: no projeto LUAZUL, ele resolveu um crash de memória no Safari e no Chrome mobile causado por decodificação de imagem WebP quadro a quadro — foi atrás da causa raiz e criou um modo leve como proteção. Não foi copiar solução pronta, foi entender o problema de verdade.",
+    "script": "Resolveu um crash de memória no Safari indo até a causa raiz: decodificação de imagem quadro a quadro. Não foi solução copiada.",
     "projeto": "LUAZUL"
   },
   {
     "id": "req-autonomia",
     "grupo": "obrigatorio",
     "req": "Autonomia e ownership",
-    "script": "Sobre autonomia, o exemplo mais direto é a própria Neo Vertex: a empresa que ele fundou, onde decide stack, arquitetura, deploy e manutenção sozinho. Ownership não é só uma palavra bonita pra ele, é como ele trabalha todo dia.",
+    "script": "Fundou a Neo Vertex e responde por stack, arquitetura, deploy e manutenção de tudo que entrega. Dono no sentido literal.",
     "projeto": "Neo Vertex"
   },
   {
     "id": "req-comunicacao",
     "grupo": "obrigatorio",
     "req": "Comunicação com stakeholders",
-    "script": "Sobre comunicação, não é só documentação bem escrita — embora tenha isso também, no projeto Neo Vertex. É reunião de alinhamento de verdade, recorrente, tanto com equipe técnica quanto com dono de negócio, em praticamente todo projeto que ele toca.",
-    "projeto": "Neo Vertex"
+    "script": "Reunião de alinhamento recorrente com equipe técnica e com dono de negócio, em todo projeto — mais documentação escrita pra ser lida.",
+    "projeto": "reuniões de alinhamento"
   },
   {
     "id": "req-transformacao",
     "grupo": "obrigatorio",
     "req": "Ambiente de transformação",
-    "script": "Sobre ambiente de transformação, o Espaço Família migrou de Supabase pra PostgreSQL self-hosted em produção, sem parar o sistema. É exatamente o tipo de mudança estrutural que uma empresa em transformação digital precisa de alguém confortável em conduzir.",
+    "script": "Migrou um sistema em produção de Supabase pra PostgreSQL próprio sem parar nada. Transformação conduzida, não sofrida.",
     "projeto": "Espaço Família"
   },
   {
     "id": "req-rpa",
     "grupo": "diferencial",
     "req": "Ferramentas de RPA",
-    "script": "Sobre RPA, tem as duas pontas: o Macro Expert, automação clássica de desktop que ele já usa há anos — inclusive desde bem antes de virar profissão — e os nove workflows de produção em n8n, automação mais moderna com IA embutida.",
+    "script": "As duas pontas: Macro Expert no desktop desde a adolescência, e nove workflows de produção em n8n.",
     "projeto": "Macro Expert + n8n"
   },
   {
     "id": "req-ia",
     "grupo": "diferencial",
     "req": "IA generativa e LLMs",
-    "script": "Esse é o ponto mais forte dele. No Sushi Rodo, por exemplo, o agente usa dois provedores de LLM diferentes no mesmo fluxo — OpenAI e Google Gemini — além de proteção de produção contra abuso desenhada à mão.",
-    "projeto": "Sushi Rodo"
+    "script": "O ponto mais forte: agentes com memória, OpenAI e Gemini no mesmo fluxo — e, quando o dado é sensível, modelo aberto como o Llama em servidor próprio: IA corporativa que não vaza informação.",
+    "projeto": "Sushi Rodo + self-hosted"
   },
   {
     "id": "req-agentes",
     "grupo": "diferencial",
     "req": "Agentes de IA",
-    "script": "Pra agentes de IA, a prova sou eu mesmo: fui desenhado e construído especificamente pra esse processo seletivo, com detecção de identidade, áudio gerado na hora e memória de conversa. Não é case antigo, é agora.",
+    "script": "A prova sou eu: fui desenhado e construído pra este processo seletivo, com detecção de identidade, voz e memória.",
     "projeto": "este próprio agente"
   },
   {
     "id": "req-arquitetura",
     "grupo": "diferencial",
     "req": "Arquitetura de integração",
-    "script": "Sobre arquitetura de integração, o Espaço Família usa webhook duplo pra auditoria independente e sub-workflows especializados orquestrados por um workflow central — pensado pra evitar concorrência entre sistemas, não só conectar A no B.",
+    "script": "Webhook duplo pra auditoria, sub-workflows especializados e endpoints desenhados contra concorrência. Arquitetura, não gambiarra.",
     "projeto": "Espaço Família"
   },
   {
     "id": "req-escala",
     "grupo": "diferencial",
     "req": "Automação em larga escala",
-    "script": "Sobre escala, o Aquarise controla estoque de múltiplas lojas com trilha de auditoria e vendas consignadas. Não é escala de milhões de transações, mas a base de fila, trava e auditoria é a mesma que sustenta esse próximo salto.",
+    "script": "Estoque multi-loja com auditoria e atendimento simultâneo com fila e trava — a base certa pro próximo salto de escala.",
     "projeto": "Aquarise"
   },
   {
     "id": "req-governanca",
     "grupo": "diferencial",
     "req": "Monitoramento e governança",
-    "script": "Sobre governança, o Espaço Família tem métricas Prometheus customizadas por rota e auditoria com mascaramento de dado pessoal — governança pensada no design, não como reação a um problema depois.",
+    "script": "Métricas Prometheus por rota e mascaramento de dado pessoal, pensados no design — não depois do incidente.",
     "projeto": "Espaço Família"
   },
   {
     "id": "req-lowcode",
     "grupo": "diferencial",
     "req": "Low-code / no-code",
-    "script": "Sobre low-code, o n8n é ferramenta principal em praticamente todo projeto dele — mas sempre com lógica customizada em código por trás, nunca só arrastar bloco.",
-    "projeto": "n8n (9 de 9 projetos)"
+    "script": "n8n em todos os projetos — sempre com código customizado por trás, nunca só arrastar bloco.",
+    "projeto": "n8n · 9 projetos"
   },
   {
     "id": "req-dados",
     "grupo": "diferencial",
     "req": "Operação orientada a dados",
-    "script": "Sobre dados, o Avantgarde tem simuladores financeiros com fórmula real de juros compostos e linear pra produtos diferentes de investimento — dado usado pra decisão, não só pra exibir número bonito.",
-    "projeto": "Avantgarde Investment"
+    "script": "Simuladores com fórmula financeira real e analytics self-hosted. Dado pra decidir, não pra enfeitar dashboard.",
+    "projeto": "Avantgarde"
   },
   {
     "id": "req-saas",
     "grupo": "diferencial",
     "req": "Empresa de tecnologia / SaaS",
-    "script": "Sobre empresa SaaS, ele nunca trabalhou formalmente dentro de uma — mas construiu sozinho, no Aquarise, um sistema com a mesma complexidade: multi-loja, painel administrativo, automação ponta a ponta. É experiência equivalente, em contexto diferente.",
+    "script": "Nunca foi empregado de um SaaS — construiu sozinho sistemas com complexidade de SaaS. Experiência equivalente, contexto diferente.",
     "projeto": "Aquarise"
   }
 ]

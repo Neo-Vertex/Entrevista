@@ -1,0 +1,15 @@
+{
+  "intro": {
+    "id": "intro",
+    "titulo": "Que bom que você decidiu continuar!",
+    "chip": "boas-vindas",
+    "script": "Que bom que você decidiu continuar! Prometo ser rápido e direto. Primeiro, deixa eu te contar como o Nelson chegou até aqui."
+  },
+  "skills": {
+    "id": "skills",
+    "titulo": "A caixa de ferramentas dele",
+    "chip": "ferramentas",
+    "frase": "Curto e grosso — o que ele usa pra entregar:",
+    "script": "No dia a dia dele: n8n e agentes de IA com OpenAI e Gemini, voz com ElevenLabs, backend em Node com PostgreSQL e SQL puro, React no front, Docker e deploy contínuo na infra. E RPA clássico com Macro Expert."
+  }
+}

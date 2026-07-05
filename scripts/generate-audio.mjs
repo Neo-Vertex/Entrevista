@@ -73,6 +73,17 @@ async function main() {
     console.log('(sem apresentacao-bio.json ainda -- pulei o áudio da bio)')
   }
 
+  const extrasPath = path.join(ROOT, 'src', 'data', 'apresentacao-extras.json')
+  try {
+    const extras = JSON.parse(await readFile(extrasPath, 'utf-8'))
+    console.log('Gerando áudios extras (intro e skills)...')
+    for (const item of [extras.intro, extras.skills]) {
+      await gerarAudio(item.id, item.script)
+    }
+  } catch {
+    console.log('(sem apresentacao-extras.json -- pulei os extras)')
+  }
+
   console.log('\nPronto. Os mp3 estão em public/audio/.')
 }
 
