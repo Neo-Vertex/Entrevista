@@ -1,9 +1,60 @@
 import { useEffect, useRef, useState } from 'react'
+import type { ReactNode } from 'react'
 import './ChatNew.css'
 
 const WEBHOOK_PERGUNTAR = 'https://n8n.neovertexia.com/webhook/perguntar-new'
 
 type Msg = { de: 'new' | 'voce'; texto: string }
+
+// Negrito inline: **texto** -> <strong>
+function comNegrito(linha: string, chave: string): ReactNode[] {
+  const partes = linha.split(/\*\*(.+?)\*\*/g)
+  return partes.map((p, i) =>
+    i % 2 === 1 ? <strong key={`${chave}-b${i}`}>{p}</strong> : <span key={`${chave}-s${i}`}>{p}</span>
+  )
+}
+
+// Renderiza markdown-lite: parágrafos, quebras de linha e listas com - ou •
+function renderRich(texto: string): ReactNode {
+  const linhas = texto.split('\n')
+  const blocos: ReactNode[] = []
+  let lista: string[] = []
+  let chave = 0
+
+  const soltarLista = () => {
+    if (lista.length === 0) return
+    const itens = [...lista]
+    blocos.push(
+      <ul className="chat-list" key={`ul-${chave++}`}>
+        {itens.map((it, i) => (
+          <li key={i}>{comNegrito(it, `li-${chave}-${i}`)}</li>
+        ))}
+      </ul>
+    )
+    lista = []
+  }
+
+  for (const linhaBruta of linhas) {
+    const linha = linhaBruta.trim()
+    if (!linha) {
+      soltarLista()
+      continue
+    }
+    const mBullet = linha.match(/^[-•]\s+(.*)$/)
+    if (mBullet) {
+      lista.push(mBullet[1])
+    } else {
+      soltarLista()
+      blocos.push(
+        <p className="chat-p" key={`p-${chave++}`}>
+          {comNegrito(linha, `p-${chave}`)}
+        </p>
+      )
+    }
+  }
+  soltarLista()
+  return <>{blocos}</>
+}
 
 const SUGESTOES = [
   'Ele topa o modelo híbrido?',
@@ -64,7 +115,7 @@ export function ChatNew() {
       <div className="chat-log">
         {msgs.map((m, i) => (
           <div key={i} className={`chat-msg ${m.de}`}>
-            {m.texto}
+            {m.de === 'new' ? renderRich(m.texto) : m.texto}
           </div>
         ))}
         {pensando && (
