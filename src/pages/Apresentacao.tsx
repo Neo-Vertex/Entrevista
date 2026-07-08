@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { NewMascot } from '../components/NewMascot'
+import { ChatNew } from '../components/ChatNew'
 import bio from '../data/apresentacao-bio.json'
 import extras from '../data/apresentacao-extras.json'
 import requisitos from '../data/apresentacao-requisitos.json'
@@ -300,15 +301,15 @@ export default function Apresentacao() {
                 <div className="bubble-top">
                   <span className="bubble-chip">é isso 🙏</span>
                 </div>
-                <h2>Obrigado por me ouvir até aqui</h2>
+                <h2>Ficou com alguma dúvida sobre o Nelson?</h2>
                 <p>
-                  Quer rever tudo desde o começo? É só clicar em "recomeçar".
+                  Pode perguntar aqui embaixo que eu respondo na hora. E aquele RPA clássico de mouse e teclado,
+                  estilo Macro Expert? O Nelson constrói esse tipo de automação em Python orientado por Claude Code:
+                  descreve o fluxo, revisa o código e coloca pra rodar em minutos.
                 </p>
-                <p>
-                  Ah, e aquele RPA clássico de mouse e teclado, estilo Macro Expert? O Nelson constrói esse tipo de
-                  automação em Python orientado por Claude Code: descreve o fluxo, revisa o código e coloca pra
-                  rodar em minutos — foi assim que ele montou uma dessas durante este próprio processo.
-                </p>
+
+                <ChatNew />
+
                 <div className="call-block">
                   <button
                     className={`call-button ${chamado ? 'called' : ''}`}
@@ -317,7 +318,7 @@ export default function Apresentacao() {
                     disabled={chamado || chamando}
                   >
                     {chamado ? (
-                      <>✓&nbsp;&nbsp;Nelson foi avisado</>
+                      <>✓&nbsp;&nbsp;Nelson já está a caminho</>
                     ) : chamando ? (
                       <>avisando…</>
                     ) : (
@@ -329,8 +330,8 @@ export default function Apresentacao() {
                   </button>
                   <p className="call-note">
                     {chamado
-                      ? 'mensagem enviada pro WhatsApp dele — obrigado! 🙏'
-                      : 'isso manda "Apresentação terminada!" direto no WhatsApp dele — e só funciona uma vez'}
+                      ? 'avisei o Nelson — pode voltar pro WhatsApp que a conversa continua com ele por lá 🙏'
+                      : 'ao clicar, aviso o Nelson na hora e a conversa continua com ele no WhatsApp — só funciona uma vez'}
                   </p>
                   {erroChamar && (
                     <p className="call-erro">não consegui avisar agora — tenta de novo em instantes 🙏</p>
